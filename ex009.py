@@ -1,5 +1,5 @@
 # multiplication table
-
+# improved version in the exercise 049
 user_enter = int(input('Enter with a number to see your multiplication table: '))
 
 print(
@@ -27,4 +27,5 @@ user_enter, (user_enter * 8),
 user_enter, (user_enter * 9),
 user_enter, (user_enter * 10)
 ))
+
 
