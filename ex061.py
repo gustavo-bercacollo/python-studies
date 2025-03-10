@@ -14,6 +14,3 @@ while i < 10:
 print('END')
 
 
-'''for i in range(first_term, tenth_term + difference, difference):
-   print( i, end='-> ')
-print('END')'''
