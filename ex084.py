@@ -6,7 +6,7 @@ person_light = []
 
 while True:
     name = input('Name: ')
-    weight = int(input('Weight: '))
+    weight = float(input('Weight: '))
 
     persons.append([weight, name ])
     persons.sort(reverse=True)
