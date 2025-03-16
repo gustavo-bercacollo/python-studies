@@ -3,7 +3,7 @@
 matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 odd_nums_total = third_column_total = 0
 largest_value_second_row = ' '
-
+''
 for i in range(3):
     for j in range(3):
         matrix[i][j] = int(input(f'Enter the value to [{i},{j}]: '))
