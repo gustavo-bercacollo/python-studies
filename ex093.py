@@ -2,8 +2,11 @@ data = {'player_name': input('Player name: ')}
 
 matches = int(input(f"How many matches {data['player_name']} played? "))
 
+data['gols'] = []
+
 for i in range(matches):
-    data['gols'].append(int(input(f'How many gols in the match {i}? ')))
+    gols = int(input(f'How many goals in match {i}? '))
+    data['gols'].append(gols)
 
 data['total'] = sum(data['gols'])
 
