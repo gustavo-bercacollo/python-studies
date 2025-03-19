@@ -1,5 +1,6 @@
-from time import sleep
+# Python Exercise #098 - Counter Function
 
+from time import sleep
 
 def counter(start, end, step):
     if step == 0:
