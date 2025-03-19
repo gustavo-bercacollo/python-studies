@@ -1,43 +1,26 @@
-# Python Exercise #094 - Joining dictionaries and lists
+data = {'player_name': input('Player name: ')}
 
-all_persons = []
-total_ages = 0
-woman_names = []
-above_average = []
-while True:
-    person = {
-        'name': str(input('Name: ')).strip(),
-        'sex': ' '
-    }
-    while person['sex'] not in 'FM':
-        person['sex'] = str(input('Sex: [F/M] ')).strip().upper()[0]
+matches = int(input(f"How many matches {data['player_name']} played? "))
 
-    person['age'] = int(input('Age: '))
-    total_ages += person['age']
-    advance = ' '
-    all_persons.append(person.copy())
+data['gols'] = []
 
-    while advance not in 'YN':
-        advance = str(input('Do you want continue? [Y/N] ')).strip().upper()[0]
+for i in range(matches):
+    gols = int(input(f'How many goals in match {i}? '))
+    data['gols'].append(gols)
 
-    if advance == 'N':
-        break
-average = total_ages / len(all_persons)
-for p in all_persons:
-    if p['sex'] == 'F':
-        woman_names.append(p['name'])
-    if p['age'] > average:
-        person_above_average = {
-            'name': p['name'],
-            'sex': p['sex'],
-            'age': p['age']
-            }
-        above_average.append(person_above_average.copy())
+data['total'] = sum(data['gols'])
 
-print(f'The total of people registered are {len(all_persons)}')
-print(f'The average age is {average}')
-print(f'The woman registered were {woman_names}')
-print('List of people above average:')
-for i in above_average:
-    print(f'Name: {i["name"]}; Sex: {i["sex"]}; Age: {i["age"]}')
+print('-=-' * 20)
+print(data)
+print('-=-' * 20)
 
+for k, v in data.items():
+    print(f'The field {k} has the value {v}')
+
+print('-=-' * 20)
+print(f"The player {data['player_name']} played {matches} matches.")
+
+for i, gols in enumerate(data['gols']):
+    print(f"In match {i}, scored {gols} goals.")
+
+print(f"Total of {data['total']} goals.")
