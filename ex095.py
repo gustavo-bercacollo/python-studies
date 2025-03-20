@@ -1,43 +1,38 @@
-# Python Exercise #094 - Joining dictionaries and lists
+# Python Exercise #095 - Improving Dictionaries
 
-all_persons = []
-total_ages = 0
-woman_names = []
-above_average = []
+players = []
+
 while True:
-    person = {
-        'name': str(input('Name: ')).strip(),
-        'sex': ' '
-    }
-    while person['sex'] not in 'FM':
-        person['sex'] = str(input('Sex: [F/M] ')).strip().upper()[0]
+    data = {'player_name': input('Player name: ')}
+    matches = int(input(f"How many matches {data['player_name']} played? "))
+    data['gols'] = []
 
-    person['age'] = int(input('Age: '))
-    total_ages += person['age']
+    for i in range(matches):
+        gols = int(input(f'How many goals in match {i+1}? '))
+        data['gols'].append(gols)
+
+    data['total'] = sum(data['gols'])
+
+    players.append(data.copy())
     advance = ' '
-    all_persons.append(person.copy())
-
     while advance not in 'YN':
-        advance = str(input('Do you want continue? [Y/N] ')).strip().upper()[0]
-
+        advance = str(input('Do you want to continue? [Y/N] ')).strip().upper()[0]
     if advance == 'N':
         break
-average = total_ages / len(all_persons)
-for p in all_persons:
-    if p['sex'] == 'F':
-        woman_names.append(p['name'])
-    if p['age'] > average:
-        person_above_average = {
-            'name': p['name'],
-            'sex': p['sex'],
-            'age': p['age']
-            }
-        above_average.append(person_above_average.copy())
+print('—' * 30)
+print(f'{"cod":<5}{"name":<10}{"gols":<10}{"total":<10}')
+for k, v in enumerate(players):
+    print(f'{k:<5}{v["player_name"]:<10}{str(v["gols"]):<10}{v["total"]:<10}')
 
-print(f'The total of people registered are {len(all_persons)}')
-print(f'The average age is {average}')
-print(f'The woman registered were {woman_names}')
-print('List of people above average:')
-for i in above_average:
-    print(f'Name: {i["name"]}; Sex: {i["sex"]}; Age: {i["age"]}')
+while True:
+    more_about_players = int(input('Show data about what player? (999 to cancel) '))
+    if more_about_players == 999:
+        break
+    if 0 <= more_about_players < len(players):
+        print(f'DATA ABOUT THE PLAYER {players[more_about_players]["player_name"]}:')
+        for i, v in enumerate(players[more_about_players]['gols']):
+            print(f'In the game {i+1} make {v} gols')
+    else:
+        print(f'Player {more_about_players} do not exist. Try again!')
 
+print('Bye!')
