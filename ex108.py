@@ -1,4 +1,4 @@
-# Python Exercise #113 - Functions in Python in depth
+# Python Exercise #108 - Error Handling
 
 while True:
     try:
